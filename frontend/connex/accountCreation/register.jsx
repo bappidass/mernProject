@@ -30,7 +30,7 @@ function Register() {
     e.preventDefault();
      
     try {
-         const responce=await axios.post('http://localhost:7000/register', {
+         const responce=await axios.post('https://mernproject-1-ve4x.onrender.com/register', {
         name,
         email,
         univercity,
