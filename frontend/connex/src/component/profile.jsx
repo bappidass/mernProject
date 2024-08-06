@@ -21,7 +21,7 @@ function Profile() {
   async function  fetchData(){
       try {
         const email= Cookies.get('userId');
-        const responce = await axios.post('http://localhost:7000/profile',{email})
+        const responce = await axios.post('https://mernproject-1-ve4x.onrender.com/profile',{email})
         console.log(responce.data);
         setname(responce.data.name)
         setUname(responce.data.univercity)
@@ -38,7 +38,7 @@ function Profile() {
   async function  DeleteUser(){
     try {
       const email= Cookies.get('userId');
-       await axios.post('http://localhost:7000/DeletProfile',{email})
+       await axios.post('https://mernproject-1-ve4x.onrender.com/DeletProfile',{email})
       toast.success(`Account permanently Deleted`,{
         position:'top-center',
        });
