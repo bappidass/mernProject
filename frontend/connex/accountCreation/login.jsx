@@ -40,7 +40,7 @@ function handelvalue(e){
        });
        Cookies.set('userId',email)
   
-      navigate('/deshboard')
+      window.location.href='/deshboard';
       
     }else if(responce.data=='wrong'){
       toast.success('password wrong',{
