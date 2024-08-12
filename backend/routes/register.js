@@ -1,7 +1,8 @@
 const express = require('express');
 const Router = express.Router();
 const User = require('../modules/register');
-
+require('dotenv').config();
+const nodemailer = require('nodemailer');
 
 //register routes
 Router.post('/register', async (req, res) => {
@@ -22,6 +23,36 @@ Router.post('/register', async (req, res) => {
     res.status(500).send(error);
   }
 });
+
+//email send to register user 
+
+let transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'connexteam947@gmail.com',
+    pass: process.env.EMAIL_PASSKAY, 
+  },
+});
+
+Router.post('/sendmail', (req, res) => {
+  const {email,sendDATA}=req.body;
+
+  let mailOptions = {
+    from: 'connexteam947@gmail.com', 
+    to: email, 
+    subject: 'Thank you for registering with us', 
+    text: '8367236724',
+    html: `${sendDATA}`, 
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return res.status(500).send(error.toString());
+    }
+    res.status(200).send('Email sent: ' + info.response);
+  });
+});
+
 
 
 //login routes

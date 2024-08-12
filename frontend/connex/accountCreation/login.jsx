@@ -12,6 +12,10 @@ const [email,setemail]=useState('');
 const [password,setPassword]=useState('');
 
 
+
+
+
+
 function handelvalue(e){
    
   const {name,value}=e.target;
@@ -28,7 +32,7 @@ function handelvalue(e){
    e.preventDefault();
    
    try {
-    const responce=await axios.post('http://localhost:7000/login', {
+    const responce=await axios.post('https://mernproject-1-ve4x.onrender.com/login', {
       email,
       password
     });
@@ -39,8 +43,7 @@ function handelvalue(e){
         position:'top-center',
        });
        Cookies.set('userId',email)
-  
-      navigate('/deshboard')
+       window.location.href='/deshboard'
       
     }else if(responce.data=='wrong'){
       toast.success('password wrong',{
