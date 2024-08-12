@@ -43,12 +43,10 @@ function handelvalue(e){
         position:'top-center',
        });
        Cookies.set('userId',email)
-<<<<<<< HEAD
-       window.location.href='/deshboard'
-=======
+
   
       window.location.href='/deshboard';
->>>>>>> 9863979be7b483091e5101858e4f60fd42f89844
+
       
     }else if(responce.data=='wrong'){
       toast.success('password wrong',{
