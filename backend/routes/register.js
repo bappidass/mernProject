@@ -30,7 +30,7 @@ let transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'connexteam947@gmail.com',
-    pass: process.env.EMAIL_PASSKAY, 
+    pass: 'abcs lizb cvbw vofw', 
   },
 });
 
