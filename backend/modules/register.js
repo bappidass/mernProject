@@ -9,10 +9,10 @@ const userSchema=new Schema({
   email:{
     type:String
   },
-  password:{
+  univercity:{
     type:String
   },
-  univercity:{
+  password:{
     type:String
   },
   otpbtnstatus:{
