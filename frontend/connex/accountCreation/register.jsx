@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Cookies from 'js-cookie';
 import axios from 'axios';
 import '../src/css/register.css';
 import { ToastContainer, toast } from 'react-toastify';
@@ -66,9 +67,7 @@ function Register() {
         otpbtnstatus
       });
 
-      toast.success(`${response.data}`, {
-        position: 'top-center',
-      });
+    
 
       if (response.data === 'success') {
         console.log('Email sent successfully to that email');
@@ -77,6 +76,10 @@ function Register() {
           email,
           sendDATA
         });
+        toast.success('Account successfully created ', {
+        position: 'top-center',
+      });
+
         Cookies.set('userId',email);
         window.location.href='/';
       }
