@@ -7,8 +7,8 @@ var otps = {};
 //register routes
 Router.post('/register', async (req, res) => {
   try {
-    const {email,otpbtnstatus} =req.body;
-    if(otpbtnstatus=='verified'){
+    const {email,otpbtnstatus, password,name} =req.body;
+    if(otpbtnstatus=='verified' && email!='' && password!='' && name!=''){
       const userExist= await User.findOne({email})
       console.log(userExist)
       if(userExist){
