@@ -6,6 +6,7 @@ import Navbar from './navbar'
 import { ToastContainer, toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+const {VITE_BACKEND_URL}=import.meta.env;
 
 function Profile() {
 
@@ -22,7 +23,7 @@ function Profile() {
   async function  fetchData(){
       try {
         const email= Cookies.get('userId');
-        const responce = await axios.post('https://mernproject-1-ve4x.onrender.com/profile',{email})
+        const responce = await axios.post(`${VITE_BACKEND_URL}/profile`,{email})
         console.log(responce.data);
         setname(responce.data.name)
         setUname(responce.data.univercity)
@@ -39,11 +40,11 @@ function Profile() {
   async function  DeleteUser(){
     try {
       const email= Cookies.get('userId');
-       await axios.post('https://mernproject-1-ve4x.onrender.com/DeletProfile',{email})
+       await axios.post(`${VITE_BACKEND_URL}/DeletProfile`,{email})
       toast.success(`Account permanently Deleted`,{
         position:'top-center',
        });
-
+       Cookies.remove('userId');
       navigation('/login')
      } catch (error) {
       console.log(error)

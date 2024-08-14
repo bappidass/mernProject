@@ -5,7 +5,7 @@ import axios from 'axios'
 import { Link ,useNavigate} from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { ToastContainer, toast } from 'react-toastify';
-
+const {VITE_BACKEND_URL}=import.meta.env;
 function Login() {
   const navigate=useNavigate()
 const [email,setemail]=useState('');
@@ -32,7 +32,7 @@ function handelvalue(e){
    e.preventDefault();
    
    try {
-    const responce=await axios.post('https://mernproject-1-ve4x.onrender.com/login', {
+    const responce=await axios.post(`${VITE_BACKEND_URL}/login`, {
       email,
       password
     });

@@ -47,7 +47,7 @@
     background: #F8F8FB;
     border: 1px solid #DADAF2;
     border-radius: 5px;
-    margin: 14px 0 4px 0;
+    margin: 4px 0 2px 0;
     text-decoration: none;
     color: #171645;
     font-weight: 500;
@@ -70,14 +70,14 @@
 
 .login_form .separator {
     position: relative;
-    margin-bottom: 14px;
+    margin-bottom: 4px;
 }
 
 /* Login option separator styling */
 .login_form .separator span {
     background: #fff;
     z-index: 1;
-    padding: 0 10px;
+    padding: 0 12px;
     position: relative;
 }
 
@@ -95,7 +95,7 @@
 form .input_box label {
     display: block;
     font-weight: 500;
-    margin-bottom: 8px;
+    margin-bottom: 1px;
 }
 
 /* Input field styling */
@@ -108,7 +108,7 @@ form .input_box input {
     background: #F8F8FB;
     font-size: 15px;
     padding: 0px 10px;
-    margin-bottom: 15px;
+    margin-bottom: 4px;
     transition: 0.2s ease;
 }
 
@@ -155,4 +155,17 @@ form button {
 
 form button:hover {
     background: #4954d0;
+}
+
+.verify-otp{
+    display: flex;
+    gap: 10px;
+}
+
+
+.verify-otp button{
+    background-color: #e66c6c;
+}
+.verify-otp button:hover{
+    background-color: rgb(63, 236, 63);
 }
