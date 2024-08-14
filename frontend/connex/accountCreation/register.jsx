@@ -154,7 +154,7 @@ function Register() {
             setOtpbtnstatus('Resend');
           } else {
             setLoading(false);
-            setOtpbtnstatus('send');
+            setOtpbtnstatus('Resend');
             toast.error('OTP verification failed', {
               position: 'top-center',
             });
