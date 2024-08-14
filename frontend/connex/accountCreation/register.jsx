@@ -101,7 +101,7 @@ function Register() {
     if (otpbtnstatus === 'verified'){
       setLoading(false);
     }
-    if (otpbtnstatus === 'send') {
+    if (otpbtnstatus === 'send' || otpbtnstatus === 'Resend') {
       try {
         const response = await axios.post(`${VITE_BACKEND_URL}/sendotp`, {
           email,
@@ -151,7 +151,7 @@ function Register() {
               position: 'top-center',
             });
             setLoading(false);
-            setOtpbtnstatus('send');
+            setOtpbtnstatus('Resend');
           } else {
             setLoading(false);
             setOtpbtnstatus('send');
@@ -192,7 +192,7 @@ function Register() {
           </div>
           <div className="input_box">
             <label htmlFor="email">Email</label>
-            <input name='email' onChange={handleValue} value={email} placeholder="Enter email address" required />
+            <input name='email' type='email' onChange={handleValue} value={email} placeholder="Enter email address" required />
           </div>
           <div className="input_box">
             <label htmlFor="email">OTP</label>
