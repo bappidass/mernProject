@@ -77,7 +77,8 @@ function Register() {
           email,
           sendDATA
         });
-        window.location.href='/login';
+        Cookies.set('userId',email);
+        window.location.href='/';
       }
      
 
