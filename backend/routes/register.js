@@ -21,7 +21,7 @@ Router.post('/register', async (req, res) => {
       }
     
     }else{
-      res.send('otp verification failed');
+      res.send('verification failed');
     }
    
   } catch (error) {

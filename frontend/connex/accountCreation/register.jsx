@@ -72,7 +72,7 @@ function Register() {
 
       if (response.data === 'success') {
         console.log('Email sent successfully to that email');
-        await axios.post(`${VITE_BACKEND_URL}/sendmail`, {
+     await axios.post(`${VITE_BACKEND_URL}/sendmail`, {
           name,
           email,
           sendDATA
