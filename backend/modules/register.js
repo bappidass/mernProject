@@ -15,6 +15,9 @@ const userSchema=new Schema({
   univercity:{
     type:String
   },
+  otpbtnstatus:{
+    type:String
+  },
   createdAt: {
     type: Date,
     default: Date.now,
