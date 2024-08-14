@@ -82,11 +82,11 @@ function Register() {
 
         Cookies.set('userId',email);
         window.location.href='/';
+      }else{
+           toast.error('verification failed', {
+              position: 'top-center',
+            });
       }
-     
-
-    
-    
     } catch (error) {
       toast.error(`${error.message}`, {
         position: 'top-center',
