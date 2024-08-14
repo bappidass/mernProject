@@ -17,7 +17,7 @@ Router.post('/register', async (req, res) => {
       }else{
         const newUser = new User(req.body);
         await newUser.save();
-        res.status(201).send('Account has been succesfully created');
+        res.status(201).send('success');
       }
     
     }else{

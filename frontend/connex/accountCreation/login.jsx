@@ -39,21 +39,21 @@ function handelvalue(e){
 
     console.log(responce.data)
     if(responce.data=='success'){
-      toast.success('Login success',{
+
+       Cookies.set('userId',email);
+       toast.success('Login success',{
         position:'top-center',
        });
-       Cookies.set('userId',email)
-
-  
-      window.location.href='/deshboard';
+       window.location.href='/deshboard';
+      
 
       
     }else if(responce.data=='wrong'){
-      toast.success('password wrong',{
+      toast.error('password wrong',{
         position:'top-center',
        });
     }else{
-      toast.success('User dose not exist',{
+      toast.error('User dose not exist',{
         position:'top-center',
        });
     }

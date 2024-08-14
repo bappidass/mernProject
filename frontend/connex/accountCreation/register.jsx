@@ -55,8 +55,9 @@ function Register() {
 
   async function onSubmit(e) {
     e.preventDefault();
+
     try {
-      setLoading(true);
+     
       const response = await axios.post(`${VITE_BACKEND_URL}/register`, {
         name,
         email,
@@ -64,32 +65,38 @@ function Register() {
         password,
         otpbtnstatus
       });
+
       toast.success(`${response.data}`, {
         position: 'top-center',
       });
-      if (response.data === 'Account has been successfully created') {
+
+      if (response.data === 'success') {
         console.log('Email sent successfully to that email');
         await axios.post(`${VITE_BACKEND_URL}/sendmail`, {
           name,
           email,
           sendDATA
         });
+        window.location.href='/login';
       }
-      console.log(response.data);
-      navigate('/login');
+     
+
+    
+    
     } catch (error) {
       toast.error(`${error.message}`, {
         position: 'top-center',
       });
       console.log(error);
-    } finally {
-      setLoading(false);
-    }
+    } 
   }
 
   async function verifyotp(e) {
     e.preventDefault();
     setLoading(true);
+    if (otpbtnstatus === 'verified'){
+      setLoading(false);
+    }
     if (otpbtnstatus === 'send') {
       try {
         const response = await axios.post(`${VITE_BACKEND_URL}/sendotp`, {
@@ -104,6 +111,7 @@ function Register() {
           toast.error('Enter a valid email', {
             position: 'top-center',
           });
+         
         } else if (response.data === 'success') {
           toast.success('OTP sent successfully', {
             position: 'top-center',
@@ -138,8 +146,10 @@ function Register() {
             toast.error('Enter a valid OTP', {
               position: 'top-center',
             });
+            setLoading(false);
             setOtpbtnstatus('send');
           } else {
+            setLoading(false);
             setOtpbtnstatus('send');
             toast.error('OTP verification failed', {
               position: 'top-center',
@@ -191,15 +201,13 @@ function Register() {
           </div>
           <div className="input_box">
             <label htmlFor="university">University</label>
-            <input name='univercity' onChange={handleValue} value={univercity} placeholder="Enter Your University name" />
+            <input name='univercity' onChange={handleValue} value={univercity} placeholder="Enter Your University name" required />
           </div>
           <div className="input_box">
             <label htmlFor="password">Password</label>
-            <input name='password' onChange={handleValue} value={password} placeholder="Enter Your Password" />
+            <input name='password' onChange={handleValue} value={password} placeholder="Enter Your Password" required/>
           </div>
-          <button type="submit" onClick={onSubmit} disabled={loading}>
-            {'SIGNUP'}
-          </button>
+          <button  onClick={onSubmit} >SIGNUP</button>
           <p className="sign_up">Already have an account? <Link to='/login'>Login</Link></p>
         </form>
       </div>
